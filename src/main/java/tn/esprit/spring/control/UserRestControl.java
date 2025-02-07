@@ -22,7 +22,7 @@ public class UserRestControl {
 	@GetMapping("/retrieve-all-users")
 	public List<User> retrieveAllUsers() {
 		return userService.retrieveAllUsers();
-		//return list;
+		//return done;
 	}
  
 	// http://localhost:????/timesheet-devops/retrieve-user/{user-id}
