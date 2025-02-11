@@ -31,7 +31,8 @@ public class Employe implements Serializable {
 	private String email;
 
 	private String password;
-	
+
+	// modifieded
 	private boolean actif;
 	
 	@Enumerated(EnumType.STRING)
