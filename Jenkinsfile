@@ -15,5 +15,10 @@ pipeline {
                
             }
         }
+stage('MVN SONARQUBE') {
+    steps {
+        sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=25175009@fifaF -Dsonar.skipTests=true'
     }
+}
+
 }
