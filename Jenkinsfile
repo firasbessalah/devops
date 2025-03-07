@@ -41,15 +41,6 @@ pipeline {
             }
         }
 
-        stage('Push Docker Image') {
-            steps {
-                script {
-                    withCredentials([string(credentialsId: 'DOCKER_PASSWORD', variable: 'DOCKER_PASS')]) {
-                        sh "docker login -u firasbessalah -p ${DOCKER_PASS}"
-                        sh "docker push ${IMAGE_NAME}:${IMAGE_VERSION}"
-                    }
-                }
-            }
-        }
+    
     }
 }
