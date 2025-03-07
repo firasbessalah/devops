@@ -19,44 +19,30 @@ pipeline {
             }
         }
 
-        /* Uncomment if you need SonarQube analysis
-        stage('MVN SONARQUBE') {
-            steps {
-                sh 'mvn sonar:sonar -Dsonar.login=squ_b89f78b6e34a1e612085135b6784f32676ec1480 -Dsonar.skipTests=true'
-            }
-        }
-        */
-
         stage('MVN Nexus') {
             steps {
                 sh 'mvn install -Dmaven.test.skip=true'
             }
         }
 
-            stage('Build Docker Image') {
+        stage('Build Docker Image') {
             steps {
                 script {
                     sh 'sudo docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} .'
                 }
             }
         }
-               stage('Login to DockerHub') {
+
+        stage('Login to DockerHub') {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'firasbessalah', passwordVariable: '25175009@fifa')]) {
                         sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
+                    }
                 }
             }
         }
-/*
-        stage('Push to DockerHub') {
-            steps {
-                script {
-                    sh 'docker push $IMAGE_NAME'
-                }
-            }
-        }
-    */
+
 
     }
 }
