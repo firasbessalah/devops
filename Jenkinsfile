@@ -50,6 +50,15 @@ pipeline {
                 }
             }
         }
+             stage('Run Docker Compose') {
+            steps {
+                script {
+                    // Run Docker Compose in detached mode
+                    sh 'docker-compose -f docker-compose.yml up -d'
+                }
+            }
+        }
+
 
     }
 }
