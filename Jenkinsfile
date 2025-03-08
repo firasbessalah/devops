@@ -55,6 +55,14 @@ stage('Git Checkout') {
                 }
             }
         }
+        stage('Verify docker-compose.yml') {
+    steps {
+        script {
+            sh 'ls -la'  // This will list all files in the workspace to check if docker-compose.yml is present
+        }
+    }
+}
+
              stage('Run Docker Compose') {
             steps {
                 script {
