@@ -43,7 +43,13 @@ pipeline {
                 }
             }
         }
-
+      stage('Push Docker Image') {
+            steps {
+                script {
+                    sh 'docker push ${IMAGE_NAME}:${IMAGE_VERSION}'
+                }
+            }
+        }
 
     }
 }
