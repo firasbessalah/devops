@@ -54,7 +54,7 @@ pipeline {
             steps {
                 script {
                     // Run Docker Compose in detached mode
-                    sh 'docker-compose up'
+                    sh 'docker-compose -f docker-compose.yml up -d'
                 }
             }
         }
