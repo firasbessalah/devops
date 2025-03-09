@@ -67,7 +67,7 @@ stage('Git Checkout') {
             steps {
                 script {
                     // Run Docker Compose in detached mode
-                    sh 'docker-compose -f docker-compose.yml up -d'
+                    sh 'docker compose -f docker-compose.yml up -d'
                 }
             }
         }
